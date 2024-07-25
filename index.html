@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Tcalce.css">
+    
+</head>
+<body>
+    <div id="body">
+        <center><h1>Temperature Converter</h1></center>
+    <div id="box">
+        <div>
+        <h2>Enter the value</h2>
+    </div>
+    <div class="converter-text">
+	    Celsius : <input type="text" id="celsius" placeholder="Enter temperature in &#176;C" name="c" value=""><br><br>
+	    Fahrenheit : <input type="text" id="fahrenheit" placeholder="Enter temperature in &#176;F" name="f" value=""><br>
+    </div>
+    <div>
+	    <button id="convert">Convert</button>
+	    <button id="clear">Clear</button>
+    </div>
+	</div>
+</div>
+
+	<!-- java script code for converting temperature. -->
+    <script type="text/javascript">
+        document.getElementById('convert').onclick = tempConvert;
+        document.getElementById('clear').onclick = clearForm;
+
+        function tempConvert(){
+            var celsius = document.getElementById("celsius").value;
+            var fahrenheit = document.getElementById("fahrenheit").value;
+
+        if(celsius != ''){
+            fahrenheit = (parseFloat(celsius) * 1.8) + 32;
+        }else{
+            celsius = (parseFloat(fahrenheit) - 32) / 1.8;
+        }
+
+        document.getElementById('celsius').value = parseFloat(celsius).toFixed(1);
+        document.getElementById('fahrenheit').value = parseFloat(fahrenheit).toFixed(1);
+        }
+
+        function clearForm(){
+            document.getElementById('celsius').value = '';
+            document.getElementById('fahrenheit').value = '';
+        }
+        </script>
+</body>
+</html>
